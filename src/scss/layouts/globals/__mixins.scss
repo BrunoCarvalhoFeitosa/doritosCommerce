@@ -1,0 +1,81 @@
+@mixin for-desktop {
+    @media (min-width: 1200px) and (max-width: 1800px) {
+        @content;
+    }
+}
+
+@mixin for-tablet {
+    @media (min-width: 48rem) and (max-width: 64rem) {
+        @content;
+    }
+}
+
+@mixin for-mobile {
+    @media (max-width: 42.5rem) {
+        @content;
+    }
+}
+
+@mixin for-mobile-320 {
+    @media (max-width: 20rem) {
+        @content;
+    }
+}
+
+@mixin px-for-rem($pxValue, $property: "font-size", $standard-size: 16) {
+    #{$property}: $pxValue + px;
+    #{$property}: $pxValue/$standard-size + rem;
+}
+
+@function strip-unit($num) {
+    @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-fallback($property, $values...) {
+    $max: length($values);
+    $pxValues: '';
+    $remValues: '';
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $pxValues: #{$pxValues + $value*16}px;
+        @if $i < $max {
+            $pxValues: #{$pxValues + " "};
+        }
+    }
+    @for $i from 1 through $max {
+        $value: strip-unit(nth($values, $i));
+        $remValues: #{$remValues + $value}rem;
+        @if $i < $max {
+            $remValues: #{$remValues + " "};
+        }
+    }
+    #{$property}: $pxValues;
+    #{$property}: $remValues;
+}
+
+@mixin transform($propertie) {
+    transform: $propertie;
+    -moz-transform: $propertie;
+    -o-transform: $propertie;
+    -webkit-transform: $propertie;
+}
+
+@mixin transition($propertie) {
+    transition: $propertie;
+    -moz-transition: $propertie;
+    -o-transition: $propertie;
+    -webkit-transition: $propertie;
+}
+
+@mixin animation($propertie) {
+    animation: $propertie;
+    -moz-animation: $propertie;
+    -o-animation: $propertie;
+    -webkit-animation: $propertie;
+}
+
+@mixin filter($propertie) {
+    filter: $propertie;
+    -ms-filter: $propertie;
+    -webkit-filter: $propertie;
+}

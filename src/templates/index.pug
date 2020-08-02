@@ -1,0 +1,30 @@
+include subtemplates/__page-header.pug
+
+section.b-container
+    div.b-container__background
+        img(src="../images/doritos-rings.png", alt="Anéis Vermelhos", class="doritos-rings")/
+    section.b-container__product
+        section.b-container__product-description
+            h1.b-container__product-description__title Acenda um fogo sob o seu paladar
+            h3.b-container__product-description__subtitle 
+                span Queijo nacho
+            p.b-container__product-description__text
+                span Milho, Óleo Vegetal (Milho, Canola e / ou Óleo de Girassol), Maltodextrina (Feita de Milho), Sal, Queijo Cheddar (Leite, Culturas de Queijo, Sal, Enzimas), Soro de Leite, Glutamato Monossódico, Soro de Leite Coalhado, Queijo Romano (Part- leite de vaca desnatado, culturas de queijo, sal, enzimas), concentrado de proteína de soro de leite, cebola em pó, farinha de milho, sabor natural e artificial, dextrose, tomate em pó, lactose, especiarias, cor artificial (amarelo 6, amarelo 5 e vermelho 40), Ácido láctico, ácido cítrico, açúcar, alho em pó, leite desnatado, pimenta vermelha e verde em pó, inosinato dissódico e guanilato dissódico.
+            h2.b-container__product-description__price
+                span R$9.99
+            div.b-container__product-description__buy
+                a(href="#", class="add-to-cart") Adicionar ao carrinho
+        section.b-container__product-image
+            figure.b-container__product-image__container
+                img(src="../images/doritos-product.png", alt="Doritos", class="doritos-product")/
+                div.b-container__product-image__container-background
+                    h4 Made by Bruno Carvalho Feitosa
+                div.b-container__product-image__container-complements
+                    img(src="../images/doritos-chips.png", alt="")/
+                    img(src="../images/doritos-ketchup.png", alt="")/
+                    img(src="../images/doritos-pepper.png", alt="")/
+
+
+//- Scripts
+script(src="../js/index.js")
+script(src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js")

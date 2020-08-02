@@ -1,0 +1,114 @@
+@import "./__globals";
+@import "./__mixins";
+@import "./__fonts";
+@import "./__colors";
+
+.b-container__header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    @include transform(translateX(-50%));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    @include px-for-rem(1080, max-width);
+    overflow: hidden;
+    z-index: 99;
+    &-logo {
+        position: relative;
+        > img {
+            @include px-for-rem(128, height);
+            @include transform(scale(.85));
+            @include animation(transform 1.2s);
+            cursor: pointer;
+            &:hover {
+                @include transform(scale(1.12));
+            }
+        }
+    }
+    &-menu {
+        ul {
+            display: flex;
+            li {
+                margin: 0 24px;
+                a {
+                    font: 16px 'Londrina Solid', cursive;
+                    font-weight: 900;
+                    text-decoration: none;
+                    @include px-for-rem(1, letter-spacing);
+                    color: $white;
+                    display: flex;
+                    justify-content: center;
+                    position: relative;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        @include px-for-rem(-10, bottom);
+                        left: 0;
+                        width: 0%;
+                        @include px-for-rem(3, height);
+                        background: $yellow;
+                        @include transition(500ms cubic-bezier(0.17, 0.67, 0, 1.01));
+                    }
+                    &:hover {
+                        &::after {
+                            width: 80%;
+                        }
+                    }
+                }
+                &:nth-child(5) {
+                    a {
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            @include px-for-rem(-10, bottom);
+                            left: 0;
+                            width: 70%;
+                            @include px-for-rem(3, height);
+                            background: $yellow;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-cart {
+        position: relative;
+        @include px-for-rem(18, right);
+        a {
+            @include px-for-rem(12, padding);
+            box-sizing: border-box;
+            @include px-for-rem(12, border-radius);
+            background: $white;
+            @include px-for-rem(18, font-size);
+            color: $red-dark;
+            display: flex;
+            align-items: center;
+            transition: all 250ms ease-in-out;
+            &:hover {
+                box-shadow: 0 3px 6px 0 $shadow-light;
+                background: $yellow;
+            }
+        }
+        span {
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            @include px-for-rem(-5, top);
+            @include px-for-rem(-8, right);
+            @include px-for-rem(20, width);
+            @include px-for-rem(20, height);
+            @include px-for-rem(50, border-radius);
+            background: $red-dark;
+            box-shadow: 0 0 6px 0 $shadow-dark;
+            font-family: 'Mada', sans-serif;
+            @include px-for-rem(11, font-size);
+            font-weight: 500;
+            color: $white;
+            @include animation(pulseCart 1.25s linear infinite);
+            cursor: pointer;
+        }
+    }
+}

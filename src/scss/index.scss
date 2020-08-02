@@ -1,0 +1,175 @@
+@import "./layouts/globals/__globals";
+@import "./layouts/globals/__fonts";
+@import "./layouts/globals/__colors";
+@import "./layouts/globals/__mixins";
+@import "./layouts/globals/__page-header";
+
+.b-container {
+    position: relative;
+    background: linear-gradient($red-light, $red-dark);
+    background-color: $red-light;
+    height: 100vh;
+    overflow: hidden;
+    &__background {
+        > img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.5;
+        }
+    }
+    &__product {
+        @include px-for-rem(1080, max-width);
+        width: 90%;
+        margin: 0 auto;
+        height: inherit;
+        display: flex;
+        z-index: 99;
+        &-description {
+            position: relative;
+            @include px-for-rem(138, top);
+            width: 45%;
+            &__title {
+                margin: 0;
+                @include px-for-rem(20, margin-bottom);
+                font: 60px 'Londrina Solid', cursive;
+                font-weight: 900;
+                @include px-for-rem(3, letter-spacing);
+                @include px-for-rem(56, line-height);
+                text-shadow: 8px 4px 0 $black;
+                color: $yellow;
+            }
+            &__subtitle {
+                font: 20px 'Londrina Solid', cursive;
+                font-weight: 900;
+                text-transform: uppercase;
+                @include px-for-rem(1, letter-spacing);
+                text-shadow: 2px 2px 0 $black;
+                -webkit-text-stroke: 2px $black;
+                color: $white;
+            }
+            &__text {
+                width: 88%;
+                @include px-for-rem(6, padding-top);
+                font-family: 'Barlow Condensed';
+                @include px-for-rem(15, font-size);
+                font-weight: 400;
+                color: $white;
+            }
+            &__price {
+                font: 30px 'Londrina Solid', cursive;
+                font-weight: 900;
+                text-transform: uppercase;
+                @include px-for-rem(1, letter-spacing);
+                text-shadow: 2px 2px 0 $black;
+                -webkit-text-stroke: 2px $black;
+                color: $white;
+            }
+            &__buy {
+                @include px-for-rem(40, height);
+                overflow: hidden;
+                @include transform(skewX(11deg));
+                > a {
+                    position: relative;
+                    display: inline-block;
+                    padding: 10px 40px;
+                    background: $yellow;
+                    @include px-for-rem(14, border-radius);
+                    box-sizing: border-box;
+                    font: 16px 'Londrina Solid', cursive;
+                    font-weight: 900;
+                    text-decoration: none;
+                    @include px-for-rem(1, letter-spacing);
+                    @include px-for-rem(1, letter-spacing);
+                    color: $red-dark;
+                    transition: 250ms ease-in-out;
+                    &::after {
+                        position: absolute;
+                        top: 0;
+                        left: -101%;
+                        content: 'Prove o irresistível';
+                        width: 100%;
+                        height: 100%;
+                        background: $yellow-dark;
+                        @include px-for-rem(14, border-radius);
+                        box-sizing: border-box;
+                        transition: 300ms cubic-bezier(0.17, 0.67, 0, 1.01);
+                    }
+                    &:hover {
+                        &::after {
+                            width: 100%;
+                            left: 0;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    }
+                } 
+            }
+        }
+        &-image {
+            position: relative;
+            width: 55%;
+            &__container {
+                position: relative;
+                img.doritos-product {
+                    position: absolute;
+                    @include px-for-rem(560, width);
+                    @include px-for-rem(60, top);
+                    @include px-for-rem(-20, right);
+                    @include animation(moveDoritosChips 2.92s linear infinite);
+                    z-index: 5;
+                    cursor: pointer;
+                }
+                &-background {
+                    position: absolute;
+                    @include px-for-rem(280, top);
+                    @include px-for-rem(70, left);
+                    @include px-for-rem(400, width);
+                    @include px-for-rem(400, height);
+                    background: $yellow;
+                    @include px-for-rem(30, border-radius);
+                    @include transform(skew(-5deg, -5deg));
+                    h4 {
+                        position: absolute;
+                        @include px-for-rem(45, bottom);
+                        @include px-for-rem(28, left);
+                        @include transform(skew(5deg, 5deg));
+                        font: 26px 'Londrina Solid';
+                        text-transform: uppercase;
+                        text-shadow: 2px 2px 0 #000;
+                        color: $yellow;
+                        opacity: .5;
+                    }
+                }
+                &-complements {
+                    position: relative;
+                    img {
+                        position: absolute;
+                        cursor: pointer;
+                        &:nth-child(1) {
+                            @include px-for-rem(340, width);
+                            @include px-for-rem(-92, right);
+                            @include px-for-rem(38, top);
+                            @include animation(moveDoritosChips 3s linear infinite);
+                            z-index: 6;
+                        }
+                        &:nth-child(2) {
+                            @include px-for-rem(220, width);
+                            @include px-for-rem(412, top);
+                            @include px-for-rem(-58, left);
+                            @include animation(rotateKetchup 7s linear infinite);
+                        }
+                        &:nth-child(3) {
+                            @include px-for-rem(245, width);
+                            @include px-for-rem(335, top);
+                            @include px-for-rem(-99, right);
+                            @include animation(shakePepper 1.2s linear infinite);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

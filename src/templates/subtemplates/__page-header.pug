@@ -1,0 +1,33 @@
+doctype html
+html(lang="pt-br")
+    head
+        meta(charset="UTF-8")/
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")/
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")/
+        meta(name="author", content="Bruno Carvalho Feitosa")/
+        meta(name="description", content="E-commerce para venda de Doritos Queijo Nacho")/
+        meta(name="keywords", content="E-commerce, Doritos, venda, queijo, nacho, pimenta")/
+        link(rel="stylesheet", type="text/css" href="css/index.css")/
+        link(rel="stylesheet", type="text/css" href="css/cart.css")/
+        link(rel="icon", type="image/png", href="/images/fav.png")/
+        title Doritos | Compre o verdadeiro nacho
+    body
+        header.b-container__header
+            div.b-container__header-logo
+                img(src="../images/doritos-logo.png")/
+            nav.b-container__header-menu
+                ul
+                    li
+                        a(href="#") Produtos
+                    li
+                        a(href="#") Nossa Empresa
+                    li
+                        a(href="#") Promoções
+                    li
+                        a(href="#") Onde comprar
+                    li
+                        a(href="#") Login
+            div.b-container__header-cart
+                a(href="#")
+                    ion-icon(name="basket-sharp")
+                span(class="cart-items") 0

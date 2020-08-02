@@ -1,0 +1,76 @@
+@import "./_mixins";
+@import "./_colors";
+body,
+html {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    input,
+    button,
+    select {
+        border: none;
+        outline: none;
+        box-sizing: border-box;
+    }
+    @keyframes pulseCart {
+        0% {
+            box-shadow: 0px 0px 0px 0px $pulse-cart-light;
+        }
+        40% {
+            box-shadow: 0px 0px 0px 7px $pulse-cart-light;
+        }
+        80% {
+            box-shadow: 0px 0px 0px 7px $pulse-cart-dark;
+        }
+        100% {
+            box-shadow: 0px 0px 0px 0px $pulse-cart-dark;
+        }
+    }
+    @keyframes moveDoritosChips {
+        50% {
+            transform: translateY(-40px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+    @keyframes shakePepper {
+        10%, 90% {
+          transform: translate3d(-1px, 0, 0);
+        }
+        
+        20%, 80% {
+          transform: translate3d(2px, 0, 0);
+        }
+      
+        30%, 50%, 70% {
+          transform: translate3d(-4px, 0, 0);
+        }
+      
+        40%, 60% {
+          transform: translate3d(4px, 0, 0);
+        }
+      }
+    @keyframes rotateKetchup {
+        from {
+            transform: rotate(0deg);
+        }
+        
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    ::selection {
+        background: $selection;
+    }
+    ::-moz-selection {
+        background: $selection;
+    }
+}
