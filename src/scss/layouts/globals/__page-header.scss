@@ -25,6 +25,12 @@
             &:hover {
                 @include transform(scale(1.12));
             }
+            @include for-mobile {
+                @include px-for-rem(110, height);
+            }
+        }
+        @include for-mobile {
+            @include px-for-rem(14, right);
         }
     }
     &-menu {
@@ -56,6 +62,9 @@
                             width: 80%;
                         }
                     }
+                    @include for-tablet {
+                        @include px-for-rem(12, font-size);
+                    }
                 }
                 &:nth-child(5) {
                     a {
@@ -71,6 +80,13 @@
                     }
                 }
             }
+            @include for-tablet {
+                position: relative;
+                @include px-for-rem(30, right);
+            }
+        }
+        @include for-mobile {
+            display: none;
         }
     }
     &-cart {
@@ -110,5 +126,11 @@
             @include animation(pulseCart 1.25s linear infinite);
             cursor: pointer;
         }
+        @include for-mobile {
+            @include px-for-rem(25, right);
+        }
+    }
+    @include for-mobile {
+        @include px-for-rem(-15, top);
     }
 }

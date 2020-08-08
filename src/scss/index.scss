@@ -17,6 +17,9 @@
             left: 50%;
             transform: translate(-50%, -50%);
             opacity: 0.5;
+            @include for-mobile {
+                width: 172%;
+            }
         }
     }
     &__product {
@@ -39,6 +42,14 @@
                 @include px-for-rem(56, line-height);
                 text-shadow: 8px 4px 0 $black;
                 color: $yellow;
+                @include for-mobile {
+                    font: 42px 'Londrina Solid', cursive;
+                    @include px-for-rem(38, line-height);
+                    text-shadow: 4px 3px 0 $black;
+                }
+                @include for-mobile {
+                    @include px-for-rem(465, max-width);
+                }
             }
             &__subtitle {
                 font: 20px 'Londrina Solid', cursive;
@@ -56,6 +67,9 @@
                 @include px-for-rem(15, font-size);
                 font-weight: 400;
                 color: $white;
+                @include for-mobile {
+                    @include px-for-rem(13, font-size);
+                } 
             }
             &__price {
                 font: 30px 'Londrina Solid', cursive;
@@ -107,6 +121,12 @@
                     }
                 } 
             }
+            @include for-mobile {
+                width: 100%;
+            }
+            @include for-tablet {
+                width: 100%;
+            }
         }
         &-image {
             position: relative;
@@ -121,6 +141,15 @@
                     @include animation(moveDoritosChips 2.92s linear infinite);
                     z-index: 5;
                     cursor: pointer;
+                    @include for-mobile {
+                        @include px-for-rem(170, top);
+                        @include px-for-rem(340, width);
+                    }
+                    @include for-tablet {
+                        @include px-for-rem(100, top);
+                        @include px-for-rem(80, right);
+                        @include px-for-rem(480, width);
+                    }
                 }
                 &-background {
                     position: absolute;
@@ -141,6 +170,26 @@
                         text-shadow: 2px 2px 0 #000;
                         color: $yellow;
                         opacity: .5;
+                        @include for-mobile {
+                            @include px-for-rem(114, bottom);
+                            font: 18px 'Londrina Solid';
+                            @include transform(skew(0deg, 0deg));
+                        }
+                        @include for-tablet {
+                            font: 24px 'Londrina Solid';
+                            @include transform(skew(0deg, 0deg));
+                        }
+                    }
+                    @include for-mobile {
+                        left: 50%;
+                        @include transform(translatex(-50%));
+                        @include px-for-rem(280, width);
+                        @include px-for-rem(245, top);
+                    }
+                    @include for-tablet {
+                        left: 50%;
+                        @include transform(translatex(-50%));
+                        @include px-for-rem(240, top);
                     }
                 }
                 &-complements {
@@ -154,22 +203,65 @@
                             @include px-for-rem(38, top);
                             @include animation(moveDoritosChips 3s linear infinite);
                             z-index: 6;
+                            @include for-mobile {
+                                @include px-for-rem(150, top);
+                                @include px-for-rem(-62, right);
+                                @include px-for-rem(200, width);
+                            }
+                            @include for-tablet {
+                                @include px-for-rem(40, top);
+                                @include px-for-rem(12, right);
+                                @include px-for-rem(280, width);
+                            }
                         }
                         &:nth-child(2) {
                             @include px-for-rem(220, width);
                             @include px-for-rem(412, top);
                             @include px-for-rem(-58, left);
                             @include animation(rotateKetchup 7s linear infinite);
+                            @include for-mobile {
+                                @include px-for-rem(390, top);
+                                @include px-for-rem(120, width);
+                            }
+                            @include for-tablet {
+                                @include px-for-rem(-18, left);
+                                @include px-for-rem(360, top);
+                            }
                         }
                         &:nth-child(3) {
                             @include px-for-rem(245, width);
                             @include px-for-rem(335, top);
                             @include px-for-rem(-99, right);
                             @include animation(shakePepper 1.2s linear infinite);
+                            @include for-mobile {
+                                @include px-for-rem(160, width);
+                                @include px-for-rem(335, top);
+                                @include px-for-rem(-59, right);
+                            }
+                            @include for-tablet {
+                                @include px-for-rem(-39, right);
+                            }
                         }
                     }
                 }
             }
+            @include for-mobile {
+                width: 100%;
+            }
+            @include for-tablet {
+                width: 100%;
+            }
         }
+        @include for-mobile {
+            flex-direction: column;
+        }
+        @include for-tablet {
+            flex-direction: column;
+        }
+    }
+    @include for-mobile {
+        position: absolute;
+        @include px-for-rem(-34, top);
+        @include px-for-rem(980, height);
     }
 }
